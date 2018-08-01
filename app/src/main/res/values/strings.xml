@@ -10,7 +10,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="title_home">Home</string>
+    <string name="title_scan">Scan</string>
+    <string name="title_dashboard">Dashboard</string>
     <string name="title_packages">Packages</string>
     <string name="title_nearby">Nearby</string>
 </resources>

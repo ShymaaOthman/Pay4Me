@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.shymaaothman.hajj_pay4me"
+        applicationId "com.hajjhack.pay4me"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1

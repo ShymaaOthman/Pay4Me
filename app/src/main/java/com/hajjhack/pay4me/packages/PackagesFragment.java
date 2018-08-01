@@ -1,4 +1,4 @@
-package com.shymaaothman.hajj_pay4me.packages;
+package com.hajjhack.pay4me.packages;
 
 import android.content.Context;
 import android.net.Uri;
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.shymaaothman.hajj_pay4me.R;
+import com.hajjhack.pay4me.R;
 
 /**
  * A simple {@link Fragment} subclass.

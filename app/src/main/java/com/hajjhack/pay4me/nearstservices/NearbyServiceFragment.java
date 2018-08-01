@@ -1,4 +1,4 @@
-package com.shymaaothman.hajj_pay4me.nearstservices;
+package com.hajjhack.pay4me.nearstservices;
 
 import android.content.Context;
 import android.net.Uri;
@@ -8,18 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.shymaaothman.hajj_pay4me.R;
+import com.hajjhack.pay4me.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link NearstServiceFragment.OnFragmentInteractionListener} interface
+ * {@link NearbyServiceFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link NearstServiceFragment#newInstance} factory method to
+ * Use the {@link NearbyServiceFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NearstServiceFragment extends Fragment {
+public class NearbyServiceFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -31,7 +31,7 @@ public class NearstServiceFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public NearstServiceFragment() {
+    public NearbyServiceFragment() {
         // Required empty public constructor
     }
 
@@ -41,11 +41,11 @@ public class NearstServiceFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment NearstServiceFragment.
+     * @return A new instance of fragment NearbyServiceFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static NearstServiceFragment newInstance(String param1, String param2) {
-        NearstServiceFragment fragment = new NearstServiceFragment();
+    public static NearbyServiceFragment newInstance(String param1, String param2) {
+        NearbyServiceFragment fragment = new NearbyServiceFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
