@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/first_name"
+        android:id="@+id/first_name"
+        android:textCursorDrawable="@drawable/edit_color"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/last_name"
+        android:id="@+id/last_name_edit"
+        android:textCursorDrawable="@drawable/edit_color"
+        />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Library Name"
+        android:id="@+id/nationality_spinner"
+        android:text="MaterialEditText"
+        android:textCursorDrawable="@drawable/edit_color"
+        android:textSize="34sp"
+      />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/age"
+        android:textCursorDrawable="@drawable/edit_color"
+        android:inputType="number"
+      />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/passport_id"
+        android:textCursorDrawable="@drawable/edit_color"
+      />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:id="@+id/myRadioGroup"
+        android:checkedButton="@+id/femal" >
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/femal"
+            android:text="@string/femal" />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/male"
+            android:text="@string/male" />
+
+
+
+    </RadioGroup>
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/reister_btn"
+        android:text="@string/register"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

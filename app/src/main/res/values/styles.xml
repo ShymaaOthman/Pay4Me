@@ -16,5 +16,8 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
+    <style name="Autocomplete">
+        <item name="colorControlNormal">@android:color/transparent</item>
+        <item name="colorControlActivated">@android:color/transparent</item>
+    </style>
 </resources>
