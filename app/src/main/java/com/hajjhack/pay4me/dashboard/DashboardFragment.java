@@ -1,10 +1,13 @@
 package com.hajjhack.pay4me.dashboard;
 
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.LinearInterpolator;
+import android.widget.ProgressBar;
 
 import com.hajjhack.pay4me.R;
 
@@ -51,11 +54,38 @@ public class DashboardFragment extends Fragment {
         }
     }
 
+    ProgressBar progressBar,progressBar2 ;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dashboard, container, false);
+
+                View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+
+                initViews(view);
+
+                return view ;
+    }
+
+    private void initViews(View view) {
+
+        progressBar = view.findViewById(R.id.progressBar);
+        progressBar2 = view.findViewById(R.id.progressBar2);
+
+        progressBar.setProgress(85);
+        progressBar2.setProgress(50);
+
+        ObjectAnimator anim1 = ObjectAnimator.ofInt(progressBar, "progress", 100, 85);
+        anim1.setDuration(1000);
+        anim1.setInterpolator(new LinearInterpolator());
+        anim1.start();
+
+        ObjectAnimator anim2 = ObjectAnimator.ofInt(progressBar2, "progress", 100, 50);
+        anim2.setDuration(1000);
+        anim2.setInterpolator(new LinearInterpolator());
+        anim2.start();
+
+
     }
 
 

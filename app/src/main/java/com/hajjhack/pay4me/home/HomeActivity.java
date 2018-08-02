@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.hajjhack.pay4me.R;
 import com.hajjhack.pay4me.dashboard.DashboardFragment;
-import com.hajjhack.pay4me.nearstservices.NearbyServiceFragment;
+import com.hajjhack.pay4me.nearbyservices.NearbyServiceFragment;
 import com.hajjhack.pay4me.packages.PackagesFragment;
 import com.hajjhack.pay4me.scanItem.ScanFragment;
 
