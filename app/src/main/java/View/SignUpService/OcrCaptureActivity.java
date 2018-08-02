@@ -47,7 +47,7 @@ import com.google.android.gms.common.api.CommonStatusCodes;
 
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
-import com.shymaaothman.hajj_pay4me.R;
+import com.hajjhack.pay4me.R;
 
 import java.io.IOException;
 

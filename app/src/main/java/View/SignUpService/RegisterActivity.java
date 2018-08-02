@@ -10,7 +10,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.shymaaothman.hajj_pay4me.R;
+
+import com.hajjhack.pay4me.R;
 
 import static com.google.android.gms.analytics.internal.zzy.m;
 import static com.google.android.gms.analytics.internal.zzy.v;

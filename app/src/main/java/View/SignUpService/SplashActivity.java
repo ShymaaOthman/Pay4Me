@@ -11,7 +11,7 @@ import android.widget.Toast;
 import View.UIManager;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
-import com.shymaaothman.hajj_pay4me.R;
+import com.hajjhack.pay4me.R;
 
 
 public class SplashActivity extends AppCompatActivity implements View.OnClickListener {

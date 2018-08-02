@@ -24,7 +24,7 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
-import com.shymaaothman.hajj_pay4me.R;
+import com.hajjhack.pay4me.R;
 
 /**
  * Main activity demonstrating how to pass extra parameters to an activity that

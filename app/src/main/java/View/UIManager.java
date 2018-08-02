@@ -3,7 +3,8 @@ package View;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.shymaaothman.hajj_pay4me.R;
+
+import com.hajjhack.pay4me.R;
 
 import View.SignUpService.InterestsActivity;
 import View.SignUpService.LoginActivity;

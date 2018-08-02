@@ -7,8 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.hajjhack.pay4me.R;
+
 import View.UIManager;
-import com.shymaaothman.hajj_pay4me.R;
 
 import org.w3c.dom.Text;
 

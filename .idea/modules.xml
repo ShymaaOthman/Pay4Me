@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Pay4Me.iml" filepath="$PROJECT_DIR$/Pay4Me.iml" />
-      <module fileurl="file://C:\Users\HP\new\new\Pay4Me\Pay4Me.iml" filepath="C:\Users\HP\new\new\Pay4Me\Pay4Me.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

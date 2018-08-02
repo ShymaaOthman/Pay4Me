@@ -3,8 +3,7 @@ package View.SignUpService;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.shymaaothman.hajj_pay4me.R;
-
+import com.hajjhack.pay4me.R;
 
 
 public class InterestsActivity extends AppCompatActivity {
