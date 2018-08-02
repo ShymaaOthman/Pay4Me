@@ -8,8 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
-
+import View.UIManager;
 import com.hajjhack.pay4me.R;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class SuggestedPackageFragment extends Fragment {
     private Context context;
     private SugestedListAdapter adapter;
     private ArrayList<String> arrayList;
+    private TextView ok;
 
     public SuggestedPackageFragment() {
     }
@@ -37,7 +39,15 @@ public class SuggestedPackageFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_sugested_list, container, false);
+        View f= inflater.inflate(R.layout.fragment_sugested_list, container, false);
+        ok=(TextView)f.findViewById(R.id.ok);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UIManager.StartHome(getActivity(),true);
+            }
+        });
+        return f;
     }
 
     @Override
@@ -50,7 +60,7 @@ public class SuggestedPackageFragment extends Fragment {
     private void loadListView(View view) {
         ListView listView = (ListView) view.findViewById(R.id.list_view);
         arrayList = new ArrayList<>();
-        for (int i = 1; i <= 50; i++)
+        for (int i = 1; i <= 10; i++)
             arrayList.add("ListView Items " + i);
 
         adapter = new SugestedListAdapter(context, arrayList);
