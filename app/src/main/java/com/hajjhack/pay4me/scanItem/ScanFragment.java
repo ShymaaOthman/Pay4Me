@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.hajjhack.pay4me.R;
 
@@ -58,7 +59,7 @@ public class ScanFragment extends Fragment
         super.onCreate(savedInstanceState);
 
         formats = new ArrayList<BarcodeFormat>();
-        formats.add(BarcodeFormat.CODE128);
+        formats.add(BarcodeFormat.QRCODE);
 
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -113,6 +114,8 @@ public class ScanFragment extends Fragment
             public void run() {
 
                 if (message.length() > 0) {
+
+                    Toast.makeText(getContext(),message,Toast.LENGTH_LONG).show();
 
                 } else {
                 }
