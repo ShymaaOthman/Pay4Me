@@ -6,13 +6,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/appicon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name="View.SignUpService.SplashActivity"
+        <activity android:name=".home.HomeActivity"
             android:label="@string/title_activity_home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home.HomeActivity"/>
+        <activity
+            android:name="View.SignUpService.SplashActivity" />
         <activity android:name="View.SignUpService.LoginActivity"/>
         <activity android:name="View.SignUpService.RegisterActivity"/>
         <activity android:name="View.SignUpService.OcrActivity"/>
