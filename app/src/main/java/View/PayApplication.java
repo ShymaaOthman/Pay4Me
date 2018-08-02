@@ -18,6 +18,7 @@ public class PayApplication extends Application  {
 
 
     private static PayApplication mInstance = new PayApplication();
+    public static boolean selectAll=false;
     private Context context;
     private ConnectivityManager cm;
     public String data;

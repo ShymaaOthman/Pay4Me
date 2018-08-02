@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".home.HomeActivity"
+            android:name="View.SignUpService.SplashActivity"
             android:label="@string/title_activity_home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +20,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".home.HomeActivity"/>
+        <activity android:name="View.SignUpService.LoginActivity"/>
+        <activity android:name="View.SignUpService.RegisterActivity"/>
+        <activity android:name="View.SignUpService.OcrActivity"/>
+        <activity android:name="View.SignUpService.OcrCaptureActivity"/>
+        <activity android:name="View.SignUpService.InterestsActivity"/>
+        <activity android:name=".packages.MainPackageActivity"/>
+        <activity android:name=".packages.SuggestedPackageActivity"/>
        </application>
 
 </manifest>
