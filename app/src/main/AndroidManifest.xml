@@ -3,7 +3,23 @@
     package="com.hajjhack.pay4me">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <uses-feature
+        android:name="android.hardware.camera.any"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <!-- GCM requires a Google account. -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,6 +29,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="View.SignUpService.SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar"
             android:label="@string/title_activity_home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,13 +38,23 @@
             </intent-filter>
         </activity>
         <activity android:name=".home.HomeActivity"/>
-        <activity android:name="View.SignUpService.LoginActivity"/>
-        <activity android:name="View.SignUpService.RegisterActivity"/>
-        <activity android:name="View.SignUpService.OcrActivity"/>
-        <activity android:name="View.SignUpService.OcrCaptureActivity"/>
-        <activity android:name="View.SignUpService.InterestsActivity"/>
-        <activity android:name=".packages.MainPackageActivity"/>
-        <activity android:name=".packages.SuggestedPackageActivity"/>
-       </application>
+        <activity android:name="View.SignUpService.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="View.SignUpService.RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="View.SignUpService.OcrActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="View.SignUpService.OcrCaptureActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="View.SignUpService.InterestsActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".packages.MainPackageActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".packages.SuggestedPackageActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+           <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="9c34e4f7de214f75b976cc2ac81a4fcac232564d" />
+    </application>
 
 </manifest>

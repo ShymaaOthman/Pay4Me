@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -19,6 +20,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
@@ -46,10 +48,14 @@ public class RegisterActivity extends AppCompatActivity {
     public static final int RequestPermissionCode = 1;
     private Dialog dialog;
     private Bitmap bitmap;
+    private TextView upload;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_register);
         initilize();
     }
@@ -58,6 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
         gender_radio = (RadioGroup) findViewById(R.id.myRadioGroup);
         reister_btn = (TextView) findViewById(R.id.reister_btn);
         add_img = (TextView) findViewById(R.id.add_img);
+        upload = (TextView) findViewById(R.id.upload);
         reister_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -276,7 +283,7 @@ public class RegisterActivity extends AppCompatActivity {
 
             Bitmap bmp = (Bitmap) data.getExtras().get("data");
 //            product_img.setImageBitmap(bmp);
-
+            upload.setTextColor(Color.parseColor("#40b77c"));
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
 
             bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
