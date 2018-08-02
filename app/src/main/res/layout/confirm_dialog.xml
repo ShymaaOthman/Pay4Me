@@ -5,7 +5,7 @@
     android:layout_height="220dp"
     android:layout_gravity="center"
     android:gravity="center_vertical"
-    android:layout_margin="10dp">
+    >
 
 
     <TextView
@@ -15,14 +15,22 @@
         android:textSize="23sp"
         android:layout_margin="30dp"
         android:layout_below="@+id/title_layout"
-        android:id="@+id/message_txt" />
+        android:id="@+id/message_txt"
+        />
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center"
         android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/stat_sys_upload_done" />
+
         <Button
             android:layout_width="120dp"
             android:layout_height="30dp"
@@ -51,5 +59,6 @@
             android:layout_margin="10dp"
             android:id="@+id/title_txt"/>
     </LinearLayout>
+
 
 </RelativeLayout>

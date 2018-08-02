@@ -1,7 +1,9 @@
 package com.hajjhack.pay4me.scanItem;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -88,15 +90,21 @@ public class ScanFragment extends Fragment
                  mScannerView = (ZBarScannerView) view.findViewById(R.id.zBarScannerView);
                  mScannerView.setAutoFocus(true);
                  pay_item_btn = view.findViewById(R.id.pay_item_btn );
+
                  pay_item_btn.setOnClickListener(new View.OnClickListener() {
                  @Override
                   public void onClick(View view) {
 
+                     if(counter >0){
 
-                     createBusinessErrorDialog(getActivity(),"Payment","Successful Payment !");
+                         new PayAsyncTask().execute();
+                    }else{
+                         Toast.makeText(getContext(),"No Items in shopping cart",Toast.LENGTH_LONG).show();
 
-            }
-        });
+                     }
+                 }});
+
+
 
                 return view ;
     }
@@ -117,7 +125,6 @@ public class ScanFragment extends Fragment
         super.onPause();
         mScannerView.stopCamera();
         mScannerView.setFormats(formats);
-        // Stop camera on pause
     }
 
 
@@ -169,4 +176,32 @@ public class ScanFragment extends Fragment
         });
     }
 
+    ProgressDialog progressDialog ;
+    private class PayAsyncTask extends AsyncTask<Void,Void,Void>{
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog = ProgressDialog.show(getContext(),"Payment","Please wait ..",true);
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            progressDialog.dismiss();
+            createBusinessErrorDialog(getActivity(),"Payment","Successful Payment !");
+
+        }
+    }
 }
