@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.shymaaothman.hajj_pay4me">
+    package="com.shymaaothman.hajj_pay4me"
+    android:installLocation="auto" >
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -9,8 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="ocr" />
         <activity
-            android:name=".dashboard.HomeActivity"
+            android:name="View.SignUpService.SplashActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -19,6 +27,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+    <activity android:name="View.SignUpService.RegisterActivity"/>
+    <activity android:name="View.SignUpService.LoginActivity"/>
+    <activity android:name="View.SignUpService.OcrCaptureActivity"/>
+    <activity android:name="View.SignUpService.OcrActivity"/>
+
     </application>
 
 </manifest>
