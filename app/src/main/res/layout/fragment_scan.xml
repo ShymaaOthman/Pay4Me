@@ -4,53 +4,68 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+        <me.dm7.barcodescanner.zbar.ZBarScannerView
+        android:id="@+id/zBarScannerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:layout_weight="1" />
+
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
         android:layout_margin="10dp"
-        android:elevation="10dp">
-
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:text="Pay"
-            android:layout_margin="10dp"
-            android:background="@color/colorPrimary"
-            android:textColor="@android:color/white"
-            android:layout_gravity="right|center"/>
-
+        android:elevation="10dp"
+        android:layout_weight="0.3">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Shopping cart :"
-                android:textSize="18sp"
-                android:layout_margin="5dp"/>
+            android:orientation="vertical">
 
-            <TextView
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/items_oncart_no"
-                android:text="0"
-                android:layout_margin="5dp"
-                android:textSize="18sp" />
+                android:orientation="horizontal"
+                android:layout_margin="10dp"
+                android:layout_gravity="left">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shopping Cart :"
+                    android:textSize="20sp"
+                    android:layout_margin="5dp"
+                    android:textColor="@android:color/holo_red_dark"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/items_oncart_no"
+                    android:text="0"
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/holo_red_dark"/>
+
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Pay"
+                android:layout_marginBottom="10dp"
+                android:background="@android:color/holo_red_dark"
+                android:textColor="@android:color/white"
+                android:layout_gravity="right"
+                android:id="@+id/pay_item_btn"/>
 
 
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
-    <me.dm7.barcodescanner.zbar.ZBarScannerView
-        android:id="@+id/zBarScannerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:layout_weight="1" />
+
 
 </LinearLayout>

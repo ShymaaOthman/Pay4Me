@@ -1,10 +1,14 @@
 package com.hajjhack.pay4me.scanItem;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hajjhack.pay4me.R;
@@ -67,6 +71,10 @@ public class ScanFragment extends Fragment
         }
     }
 
+    TextView shopping_cart_items_no ;
+    int counter = 0 ;
+    Button pay_item_btn ;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -75,11 +83,25 @@ public class ScanFragment extends Fragment
 
                 View view = inflater.inflate(R.layout.fragment_scan, container, false);
 
+
+                 shopping_cart_items_no = view.findViewById(R.id.items_oncart_no);
                  mScannerView = (ZBarScannerView) view.findViewById(R.id.zBarScannerView);
                  mScannerView.setAutoFocus(true);
+                 pay_item_btn = view.findViewById(R.id.pay_item_btn );
+                 pay_item_btn.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                  public void onClick(View view) {
+
+
+                     createBusinessErrorDialog(getActivity(),"Payment","Successful Payment !");
+
+            }
+        });
 
                 return view ;
     }
+
+
 
     @Override
     public void onResume() {
@@ -115,11 +137,34 @@ public class ScanFragment extends Fragment
 
                 if (message.length() > 0) {
 
+                    counter++ ;
+                    shopping_cart_items_no.setText(counter+"");
                     Toast.makeText(getContext(),message,Toast.LENGTH_LONG).show();
+                    mScannerView.startCamera();          // Start camera on resume
+                    mScannerView.setResultHandler(ScanFragment.this); // Register ourselves as a handler for scan results.
+                    mScannerView.setFormats(formats);
 
                 } else {
                 }
 
+            }
+        });
+    }
+
+    void createBusinessErrorDialog(Context context, String title, final String message) {
+        final Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.confirm_dialog);
+        Button yes_btn = (Button) dialog.findViewById(R.id.yes_btn);
+        TextView title_txt = (TextView) dialog.findViewById(R.id.title_txt);
+        title_txt.setText(title);
+        TextView message_txt = (TextView) dialog.findViewById(R.id.message_txt);
+        message_txt.setText(message);
+        dialog.setCancelable(true);
+        dialog.show();
+        yes_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
     }
