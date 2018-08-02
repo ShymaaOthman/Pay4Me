@@ -5,6 +5,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hajjhack.pay4me.R;
 
@@ -17,6 +20,7 @@ public class PackagesFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    HeaderListView packageslist;
 
     public PackagesFragment() {
         // Required empty public constructor
@@ -47,13 +51,101 @@ public class PackagesFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+//        HeaderListView packageslist = new HeaderListView(getActivity());
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_packages, container, false);
+        View rootview= inflater.inflate(R.layout.fragment_packages, container, false);
+        packageslist=(HeaderListView)rootview.findViewById(R.id.packageslist);
+        packageslist.setAdapter(new SectionAdapter() {
+
+            @Override
+            public int numberOfSections() {
+                return 4;
+            }
+
+            @Override
+            public int numberOfRows(int section) {
+                return 35;
+            }
+
+            @Override
+            public Object getRowItem(int section, int row) {
+                return null;
+            }
+
+            @Override
+            public boolean hasSectionHeaderView(int section) {
+                return true;
+            }
+
+            @Override
+            public View getRowView(int section, int row, View convertView, ViewGroup parent) {
+                if (convertView == null) {
+                    convertView = (TextView) getLayoutInflater().inflate(getResources().getLayout(android.R.layout.simple_list_item_1), null);
+                }
+                ((TextView) convertView).setText("Package " + section + " Row " + row);
+                return convertView;
+            }
+
+            @Override
+            public int getSectionHeaderViewTypeCount() {
+                return 2;
+            }
+
+            @Override
+            public int getSectionHeaderItemViewType(int section) {
+                return section % 2;
+            }
+
+            @Override
+            public View getSectionHeaderView(int section, View convertView, ViewGroup parent) {
+
+                if (convertView == null) {
+                    if (getSectionHeaderItemViewType(section) == 0) {
+                        convertView = (TextView) getLayoutInflater().inflate(getResources().getLayout(android.R.layout.simple_list_item_1), null);
+                    } else {
+                        convertView = getLayoutInflater().inflate(getResources().getLayout(android.R.layout.simple_list_item_2), null);
+                    }
+                }
+
+                if (getSectionHeaderItemViewType(section) == 0) {
+                    ((TextView) convertView).setText("Provider  " + section);
+                } else {
+                    ((TextView) convertView.findViewById(android.R.id.text1)).setText("Provider " + section);
+//                    ((TextView) convertView.findViewById(android.R.id.text2)).setText("Has a detail text field");
+                }
+
+                switch (section) {
+                    case 0:
+                        convertView.setBackgroundColor(getResources().getColor(R.color.holo_red_light));
+                        break;
+                    case 1:
+                        convertView.setBackgroundColor(getResources().getColor(R.color.holo_orange_light));
+                        break;
+                    case 2:
+                        convertView.setBackgroundColor(getResources().getColor(R.color.holo_green_light));
+                        break;
+                    case 3:
+                        convertView.setBackgroundColor(getResources().getColor(R.color.holo_blue_light));
+                        break;
+                }
+                return convertView;
+            }
+
+            @Override
+            public void onRowItemClick(AdapterView<?> parent, View view, int section, int row, long id) {
+                super.onRowItemClick(parent, view, section, row, id);
+                Toast.makeText(getActivity(), "Section " + section + " Row " + row, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return  rootview;
     }
 
 

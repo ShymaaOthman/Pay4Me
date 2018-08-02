@@ -2,12 +2,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.shymaaothman.hajj_pay4me.packages.PackagesFragment">
+    tools:context="com.hajjhack.pay4me.packages.PackagesFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />
+<com.hajjhack.pay4me.packages.HeaderListView
+    android:id="@+id/packageslist"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
+</com.hajjhack.pay4me.packages.HeaderListView>
 </FrameLayout>
