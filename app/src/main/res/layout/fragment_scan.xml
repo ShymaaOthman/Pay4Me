@@ -18,7 +18,7 @@
         android:orientation="vertical"
         android:layout_margin="10dp"
         android:elevation="10dp"
-        android:layout_weight="0.3">
+        android:layout_weight="0.4">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,23 +31,34 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_margin="10dp"
-                android:layout_gravity="left">
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/ic_shopping_cart_icon"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Shopping Cart :"
+                    android:text="Shopping Cart "
                     android:textSize="20sp"
                     android:layout_margin="5dp"
-                    android:textColor="@android:color/holo_red_dark"/>
+                    android:padding="5dp"
+                    android:textColor="@color/colorPrimary"
+                    />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/items_oncart_no"
                     android:text="0"
                     android:layout_margin="5dp"
                     android:textSize="20sp"
-                    android:textColor="@android:color/holo_red_dark"/>
+                    android:background="@color/colorPrimary"
+                    android:textColor="@android:color/white"
+                    android:gravity="center_horizontal"
+                    android:padding="5dp"
+                    />
 
 
             </LinearLayout>
@@ -56,8 +67,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="Pay"
-                android:layout_marginBottom="10dp"
-                android:background="@android:color/holo_red_dark"
+                android:layout_margin="10dp"
+                android:background="#ff9900"
                 android:textColor="@android:color/white"
                 android:layout_gravity="right"
                 android:id="@+id/pay_item_btn"/>

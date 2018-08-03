@@ -5,6 +5,8 @@ import android.content.Intent;
 
 
 import com.hajjhack.pay4me.R;
+import com.hajjhack.pay4me.packages.MainPackageActivity;
+import com.hajjhack.pay4me.packages.SuggestedPackageActivity;
 
 import View.SignUpService.InterestsActivity;
 import View.SignUpService.LoginActivity;
@@ -74,4 +76,23 @@ public class UIManager {
             loginActivity.overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
 
     }
+    public static void startMainPackageActivity(Activity loginActivity, boolean startAnimation) {
+        Intent mainIntent = new Intent(loginActivity, MainPackageActivity.class);
+        loginActivity.startActivity(mainIntent);
+        if (startAnimation)
+            loginActivity.overridePendingTransition(R.anim.enter, R.anim.exit);
+        else
+            loginActivity.overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+
+    }
+ public static void startSugestedPackageActivity(Activity loginActivity, boolean startAnimation) {
+        Intent mainIntent = new Intent(loginActivity, SuggestedPackageActivity.class);
+        loginActivity.startActivity(mainIntent);
+        if (startAnimation)
+            loginActivity.overridePendingTransition(R.anim.enter, R.anim.exit);
+        else
+            loginActivity.overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+
+    }
+
 }
