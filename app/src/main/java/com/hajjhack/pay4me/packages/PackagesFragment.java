@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.hajjhack.pay4me.R;
 
+import model.ImageAdapter;
+
 public class PackagesFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -64,12 +66,12 @@ public class PackagesFragment extends Fragment {
         View rootview= inflater.inflate(R.layout.fragment_packages, container, false);
 
         GridView gridview = (GridView)rootview.findViewById(R.id.gridview);
-        gridview.setAdapter(new ImageAdapter(this));
+        gridview.setAdapter(new ImageAdapter(getActivity()));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(HelloGridView.this, "" + position,
+                Toast.makeText(getActivity(), "" + position,
                         Toast.LENGTH_SHORT).show();
             }
         });
