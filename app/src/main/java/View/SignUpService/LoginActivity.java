@@ -41,6 +41,10 @@ public class LoginActivity extends AppCompatActivity {
         {
             user_name_edit.setText(PayApplication.getInstance().passport_id);
             user_pass_edit.setText(PayApplication.getInstance().password);
+        }else
+        {
+            user_name_edit.setText(" ");
+            user_pass_edit.setText(" ");
         }
         TextView login_btn = (TextView) findViewById(R.id.login_btn);
         login_btn.setOnClickListener(new View.OnClickListener() {

@@ -98,6 +98,7 @@ public class UIManager {
             loginActivity.overridePendingTransition(R.anim.enter, R.anim.exit);
         else
             loginActivity.overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+        loginActivity.finish();
 
 
     }
