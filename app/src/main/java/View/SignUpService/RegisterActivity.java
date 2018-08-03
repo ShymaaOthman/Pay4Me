@@ -79,12 +79,7 @@ public class RegisterActivity extends AppCompatActivity {
         reister_btn = (TextView) findViewById(R.id.reister_btn);
         add_img = (LinearLayout) findViewById(R.id.add_img);
         upload = (TextView) findViewById(R.id.upload);
-        reister_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                UIManager.startInterestsActivity(RegisterActivity.this,true);
-            }
-        });
+
         ocr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -169,7 +164,7 @@ public class RegisterActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressDialog = ProgressDialog.show(RegisterActivity.this,"Payment","Please wait ..",true);
+            progressDialog = ProgressDialog.show(RegisterActivity.this,"Make New Account","Please wait ..",true);
         }
 
         @Override
@@ -186,7 +181,8 @@ public class RegisterActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-           UIManager.startlogin(RegisterActivity.this,true);
+
+           UIManager.startInterestsActivity(RegisterActivity.this,true);
            Toast.makeText(RegisterActivity.this,"Your Password is 02390",Toast.LENGTH_LONG).show();
 
         }

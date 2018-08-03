@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
-
+import View.PayApplication;
 import View.UIManager;
 import com.hajjhack.pay4me.R;
 
@@ -27,6 +27,7 @@ public class SuggestedPackageFragment extends Fragment {
     private ArrayList<String> arrayList;
     private TextView ok;
     private ArrayList<String> desciptions;
+    private TextView d;
 
     public SuggestedPackageFragment() {
     }
@@ -41,6 +42,15 @@ public class SuggestedPackageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View f= inflater.inflate(R.layout.fragment_sugested_list, container, false);
+        d=(TextView)f.findViewById(R.id.d);
+        if(PayApplication.getInstance().isSugested)
+        {
+            d.setVisibility(View.VISIBLE);
+        }else
+        {
+            d.setVisibility(View.GONE);
+
+        }
         ok=(TextView)f.findViewById(R.id.ok);
         ok.setOnClickListener(new View.OnClickListener() {
             @Override

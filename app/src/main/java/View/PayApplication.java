@@ -24,6 +24,7 @@ public class PayApplication extends Application {
     public String data;
     public String passport_id = "";
     public String password = "";
+    public boolean isSugested=false;
 
 
     @Override

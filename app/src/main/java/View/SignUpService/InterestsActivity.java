@@ -35,14 +35,15 @@ public class InterestsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 UIManager.startSugestedPackageActivity(InterestsActivity.this,true);
+                PayApplication.getInstance().isSugested=true;
 
             }
         });
         skip_txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UIManager.startMainPackageActivity(InterestsActivity.this,true);
-
+                UIManager.startSugestedPackageActivity(InterestsActivity.this,true);
+                PayApplication.getInstance().isSugested=false;
             }
         });
         interests_list = (ListView) findViewById(R.id.interests_list);
