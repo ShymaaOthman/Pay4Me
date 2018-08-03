@@ -26,6 +26,7 @@ public class SuggestedPackageFragment extends Fragment {
     private SugestedListAdapter adapter;
     private ArrayList<String> arrayList;
     private TextView ok;
+    private ArrayList<String> desciptions;
 
     public SuggestedPackageFragment() {
     }
@@ -60,10 +61,16 @@ public class SuggestedPackageFragment extends Fragment {
     private void loadListView(View view) {
         ListView listView = (ListView) view.findViewById(R.id.list_view);
         arrayList = new ArrayList<>();
-        for (int i = 1; i <= 10; i++)
-            arrayList.add("ListView Items " + i);
+        arrayList.add("Waffer Package");
+        arrayList.add("Mega Package");
+        arrayList.add("Super Package");
+        desciptions = new ArrayList<>();
+        desciptions.add("1000 point");
+        desciptions.add("5000 point");
+        desciptions.add("10000 point");
 
-        adapter = new SugestedListAdapter(context, arrayList);
+
+        adapter = new SugestedListAdapter(context, arrayList,desciptions);
         listView.setAdapter(adapter);
     }
 
@@ -84,4 +91,5 @@ public class SuggestedPackageFragment extends Fragment {
         });
 
     }
+
 }

@@ -3,6 +3,8 @@ package View.SignUpService;
 import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -10,7 +12,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import View.UIManager;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
@@ -49,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Dialog dialog;
     private Bitmap bitmap;
     private TextView upload;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +73,7 @@ public class RegisterActivity extends AppCompatActivity {
         reister_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                UIManager.startlogin(RegisterActivity.this,true);
             }
         });
         add_img.setOnClickListener(new View.OnClickListener() {
@@ -136,6 +141,53 @@ public class RegisterActivity extends AppCompatActivity {
                 } else if (selectedId == femal.getId()) {
                     gender = "f";
                 }
+                ProgressDialog progressDialog ;
+
+            }
+        });
+
+    }
+    private class PayAsyncTask extends AsyncTask<Void,Void,Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog = ProgressDialog.show(RegisterActivity.this,"Payment","Please wait ..",true);
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            progressDialog.dismiss();
+            createBusinessErrorDialog(RegisterActivity.this,"Payment","Successful Payment !");
+
+        }
+    }
+    void createBusinessErrorDialog(Activity context, String title, final String message) {
+        final Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.confirm_dialog);
+        Button yes_btn = (Button) dialog.findViewById(R.id.yes_btn);
+        TextView title_txt = (TextView) dialog.findViewById(R.id.title_txt);
+        title_txt.setText(title);
+        TextView message_txt = (TextView) dialog.findViewById(R.id.message_txt);
+        message_txt.setText(message);
+        dialog.setCancelable(true);
+        dialog.show();
+        yes_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
     }

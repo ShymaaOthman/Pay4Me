@@ -45,4 +45,17 @@
     <string name="title_packages">Packages</string>
     <string name="title_nearby">Nearby</string>
     <string name="skip">skip</string>
+    <string name="country_prompt">Choose a country</string>
+
+    <string-array name="spinner_coutries">
+        <item>Egypt</item>
+        <item>Saudi Arabia</item>
+        <item> Malaysia</item>
+        <item>Indonesia</item>
+        <item>France</item>
+        <item>Italy</item>
+        <item>Singapore</item>
+        <item>New Zealand</item>
+        <item>India</item>
+    </string-array>
 </resources>

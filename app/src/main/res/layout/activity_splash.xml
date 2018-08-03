@@ -36,7 +36,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:paddingBottom="10dp"
-                    android:paddingTop="10dp"/>
+                    android:paddingTop="10dp"
+                  />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -96,7 +97,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/rounded_rectangle_white2"
                     android:gravity="center"
-                    android:padding="5dp"
+                    android:padding="10dp"
                     android:text="@string/login"
 
                     android:textColor="@android:color/white" />
@@ -110,12 +111,13 @@
                     android:layout_weight="1"
                     android:background="@drawable/rounded_rectangle_black"
                     android:gravity="center"
-                    android:padding="5dp"
+                    android:padding="10dp"
 
                     android:text="@string/register"
                     android:textColor="@android:color/white" />
 
             </LinearLayout>
+
 
         </RelativeLayout>
 

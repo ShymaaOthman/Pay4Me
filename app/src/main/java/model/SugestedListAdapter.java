@@ -21,12 +21,14 @@ import java.util.ArrayList;
 public class SugestedListAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<String> arrayList;
+    private ArrayList<String> descriptopons;
     private LayoutInflater inflater;
     private int selectedPosition = -1;
 
-    public SugestedListAdapter(Context context, ArrayList<String> arrayList) {
+    public SugestedListAdapter(Context context, ArrayList<String> arrayList,ArrayList<String>descriptions) {
         this.context = context;
         this.arrayList = arrayList;
+        this.descriptopons = descriptions;
         inflater = LayoutInflater.from(context);
     }
 
@@ -64,6 +66,7 @@ public class SugestedListAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
 
         viewHolder.label.setText(arrayList.get(i));
+        viewHolder.description.setText(descriptopons.get(i));
 
         //check the radio button if both position and selectedPosition matches
         viewHolder.radioButton.setChecked(i == selectedPosition);
