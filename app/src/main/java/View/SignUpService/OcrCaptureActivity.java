@@ -100,7 +100,8 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         validate_txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onTap(0, 0, PayApplication.getInstance().data);
+                finish();
+//                onTap(0, 0, PayApplication.getInstance().data);
             }
         });
         // Check for the camera permission before accessing the camera.  If the

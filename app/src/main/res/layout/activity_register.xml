@@ -86,9 +86,9 @@
                 android:id="@+id/nationality_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:entries="@array/spinner_coutries"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:entries="@array/spinner_coutries"
                 android:prompt="@string/country_prompt"
                 android:text="MaterialEditText"
                 android:textCursorDrawable="@drawable/edit_color"
@@ -122,6 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+
             android:background="@drawable/register_edit_bg">
 
             <EditText
@@ -134,15 +135,20 @@
                 android:hint="@string/passport_id"
                 android:inputType="text"
                 android:nextFocusDown="@+id/user_pass_edit"
-                android:singleLine="true"
                 android:paddingLeft="15dp"
+                android:singleLine="true"
 
                 android:textCursorDrawable="@null"
                 app:backgroundTint="@android:color/transparent" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:id="@+id/ocr"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/ocr" />
 
         </RelativeLayout>
 
@@ -180,20 +186,21 @@
             android:layout_marginTop="10dp">
 
             <LinearLayout
+                android:id="@+id/add_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
 
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:src="@drawable/iconn"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/iconn" />
 
                 <TextView
 
-                    android:id="@+id/add_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Select " />

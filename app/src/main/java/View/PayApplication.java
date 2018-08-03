@@ -14,14 +14,16 @@ import android.widget.Toast;
 /**
  */
 
-public class PayApplication extends Application  {
+public class PayApplication extends Application {
 
 
     private static PayApplication mInstance = new PayApplication();
-    public static boolean selectAll=false;
+    public static boolean selectAll = false;
     private Context context;
     private ConnectivityManager cm;
     public String data;
+    public String passport_id = "";
+    public String password = "";
 
 
     @Override
@@ -39,7 +41,6 @@ public class PayApplication extends Application  {
         cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
     }
-
 
 
     public static synchronized PayApplication getInstance() {
@@ -61,7 +62,6 @@ public class PayApplication extends Application  {
     public void showToast(String msg) {
         Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
     }
-
 
 
 }

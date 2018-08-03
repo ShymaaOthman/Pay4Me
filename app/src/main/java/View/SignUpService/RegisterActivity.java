@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import View.UIManager;
+import View.PayApplication;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
@@ -27,6 +28,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -34,26 +37,29 @@ import android.widget.Toast;
 
 
 import com.hajjhack.pay4me.R;
+import com.hajjhack.pay4me.scanItem.ScanFragment;
 
 import java.io.ByteArrayOutputStream;
 
 import presenter.storage.SharedPreferencesManager;
 
 import static android.content.ContentValues.TAG;
-import static com.google.android.gms.analytics.internal.zzy.m;
-import static com.google.android.gms.analytics.internal.zzy.v;
+
 
 
 
 public class RegisterActivity extends AppCompatActivity {
     RadioGroup gender_radio;
     private String gender;
-    private TextView reister_btn,add_img;
+    private TextView reister_btn;
+    LinearLayout add_img;
     public static final int RequestPermissionCode = 1;
     private Dialog dialog;
     private Bitmap bitmap;
     private TextView upload;
     private ProgressDialog progressDialog;
+    private ImageView ocr;
+    private TextView passport_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,14 +72,23 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void initilize() {
+        ocr=(ImageView)findViewById(R.id.ocr);
         gender_radio = (RadioGroup) findViewById(R.id.myRadioGroup);
         reister_btn = (TextView) findViewById(R.id.reister_btn);
-        add_img = (TextView) findViewById(R.id.add_img);
+        passport_id = (TextView) findViewById(R.id.passport_id);
+        reister_btn = (TextView) findViewById(R.id.reister_btn);
+        add_img = (LinearLayout) findViewById(R.id.add_img);
         upload = (TextView) findViewById(R.id.upload);
         reister_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UIManager.startlogin(RegisterActivity.this,true);
+            }
+        });
+        ocr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UIManager.startOcrScreen(RegisterActivity.this);
             }
         });
         add_img.setOnClickListener(new View.OnClickListener() {
@@ -127,21 +142,23 @@ public class RegisterActivity extends AppCompatActivity {
 //        });
 
         final RadioButton femal = (RadioButton) findViewById(R.id.femal);
-        final RadioButton male = (RadioButton) findViewById(R.id.main_container);
+        final RadioButton male = (RadioButton) findViewById(R.id.male);
 
         reister_btn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                int selectedId = gender_radio.getCheckedRadioButtonId();
+//                int selectedId = gender_radio.getCheckedRadioButtonId();
+//
+//                if (selectedId == male.getId()) {
+//                    gender = "m";
+//                } else if (selectedId == femal.getId()) {
+//                    gender = "f";
+//                }
+              PayApplication.getInstance().passport_id=passport_id.getText().toString();
+              PayApplication.getInstance().password="02390";
+               new PayAsyncTask().execute();
 
-                // find which radioButton is checked by id
-                if (selectedId == male.getId()) {
-                    gender = "m";
-                } else if (selectedId == femal.getId()) {
-                    gender = "f";
-                }
-                ProgressDialog progressDialog ;
 
             }
         });
@@ -169,8 +186,8 @@ public class RegisterActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            progressDialog.dismiss();
-            createBusinessErrorDialog(RegisterActivity.this,"Payment","Successful Payment !");
+           UIManager.startlogin(RegisterActivity.this,true);
+           Toast.makeText(RegisterActivity.this,"Your Password is 02390",Toast.LENGTH_LONG).show();
 
         }
     }
@@ -263,7 +280,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void showCameraAlert() {
         AlertDialog alertDialog = new AlertDialog.Builder(RegisterActivity.this).create();
-        alertDialog.setTitle("تنبيه");
+        alertDialog.setTitle("Alert");
         alertDialog.setMessage("التطبيق يريد السماح باستخدام الكاميرا.");
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "الرفض",
                 new DialogInterface.OnClickListener() {

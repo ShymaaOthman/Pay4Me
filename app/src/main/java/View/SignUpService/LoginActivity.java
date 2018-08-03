@@ -1,5 +1,7 @@
 package View.SignUpService;
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,16 +10,19 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hajjhack.pay4me.R;
 
 import View.UIManager;
 
 import org.w3c.dom.Text;
-
+import View.PayApplication;
 
 
 public class LoginActivity extends AppCompatActivity {
+    private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,14 +34,48 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initilize() {
+      
         EditText user_name_edit = (EditText) findViewById(R.id.user_name_edit);
         EditText user_pass_edit = (EditText) findViewById(R.id.user_pass_edit);
+        if(PayApplication.getInstance().password!=null)
+        {
+            user_name_edit.setText(PayApplication.getInstance().passport_id);
+            user_pass_edit.setText(PayApplication.getInstance().password);
+        }
         TextView login_btn = (TextView) findViewById(R.id.login_btn);
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UIManager.startInterestsActivity(LoginActivity.this,true);
+                new PayAsyncTask().execute();
             }
         });
     }
+    private class PayAsyncTask extends AsyncTask<Void,Void,Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog = ProgressDialog.show(LoginActivity.this,"Login","Please wait ..",true);
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            UIManager.StartHome(LoginActivity.this,true);
+
+
+        }
+    }
+
 }
