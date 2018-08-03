@@ -11,10 +11,11 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hajjhack.pay4me.R;
 import com.hajjhack.pay4me.dashboard.DashboardFragment;
-import com.hajjhack.pay4me.nearstservices.NearbyServiceFragment;
+import com.hajjhack.pay4me.nearbyservices.NearbyServiceFragment;
 import com.hajjhack.pay4me.packages.PackagesFragment;
 import com.hajjhack.pay4me.scanItem.ScanFragment;
 
@@ -85,6 +86,9 @@ public class HomeActivity extends AppCompatActivity {
 
             // MY_PERMISSIONS_REQUEST_READ_CAMERA is an app-defined int constant. The callback method gets theresult of the request.
 
+        }else {
+            ScanFragment scanFragment = new ScanFragment();
+            replaceFragment(scanFragment, true,"scan");
         }
     }
 
@@ -103,7 +107,7 @@ public class HomeActivity extends AppCompatActivity {
                     replaceFragment(scanFragment,true,"scan");
 
                 } else {
-                    //Toast.makeText(this,getString(R.string.camer_permission),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"You must grant camera permission !",Toast.LENGTH_SHORT).show();
 
 
                 }

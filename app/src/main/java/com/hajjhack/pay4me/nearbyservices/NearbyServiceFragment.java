@@ -1,4 +1,4 @@
-package com.hajjhack.pay4me.nearstservices;
+package com.hajjhack.pay4me.nearbyservices;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
