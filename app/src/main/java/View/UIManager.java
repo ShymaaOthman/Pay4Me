@@ -33,7 +33,7 @@ public class UIManager {
             activity.overridePendingTransition(R.anim.enter, R.anim.exit);
         else
             activity.overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
-
+        activity.finish();
     }
 
 
@@ -77,6 +77,8 @@ public class UIManager {
         else
             loginActivity.overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
 
+        loginActivity.finish();
+
     }
 
     public static void startMainPackageActivity(Activity loginActivity, boolean startAnimation) {
@@ -97,11 +99,14 @@ public class UIManager {
         else
             loginActivity.overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
 
+
     }
 
     public static void StartHome(Activity activity, boolean b) {
         Intent mainIntent = new Intent(activity, HomeActivity.class);
         activity.startActivity(mainIntent);
         activity.overridePendingTransition(R.anim.enter, R.anim.exit);
+        activity.finish();
+
     }
 }
