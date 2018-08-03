@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
     style="@style/App_base_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
     android:gravity="center_horizontal"
-    android:layout_height="match_parent"
     android:orientation="vertical">
 
     <ImageView
@@ -19,63 +19,69 @@
         android:gravity="center_horizontal"
         android:src="@drawable/ic_l"
         app:srcCompat="@drawable/ic_l" />
+
     <TextView
-        android:layout_below="@+id/logo_image"
-        android:layout_marginTop="5dp"
-        android:gravity="center_horizontal"
         android:id="@+id/list_select_all"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
+        android:layout_below="@+id/logo_image"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal"
         android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
 
-        android:textColor="@color/colorPrimary"
         android:text="Choose Your Package"
+        android:textColor="@color/colorPrimary"
         android:textSize="20sp" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:textSize="10sp"
-        android:gravity="right"
         android:id="@+id/d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/list_select_all"
         android:layout_marginBottom="20dp"
 
         android:layout_marginRight="10dp"
-        android:layout_below="@+id/list_select_all"
+        android:gravity="right"
         android:text="Recommended Packages"
         android:textColor="@android:color/holo_red_dark"
-        android:layout_height="wrap_content" />
+        android:textSize="10sp" />
 
     <ListView
         android:id="@+id/list_view"
-        android:layout_below="@+id/d"
         android:layout_width="match_parent"
-
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
         android:layout_height="match_parent"
-        android:layout_above="@+id/ok" />
+        android:layout_above="@+id/ok"
+        android:layout_below="@+id/d"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:scrollbars="none" />
+
     <TextView
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:background="@drawable/rounded_rectangle_white2"
-        android:padding="10dp"
         android:id="@+id/ok"
-        android:layout_margin="30dp"
-android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:textColor="@android:color/white"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="29dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:layout_weight="1"
-        android:text="@string/ok" />
+        android:background="@drawable/rounded_rectangle_white2"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/ok"
+        android:textColor="@android:color/white" />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/bottom_container"
         android:layout_width="match_parent"
-        android:visibility="invisible"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="invisible">
 
         <Button
             android:id="@+id/show_button"

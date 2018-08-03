@@ -69,7 +69,7 @@ public class UIManager {
     }
 
 
-    public static void startInterestsActivity(LoginActivity loginActivity, boolean startAnimation) {
+    public static void startInterestsActivity(Activity loginActivity, boolean startAnimation) {
         Intent mainIntent = new Intent(loginActivity, InterestsActivity.class);
         loginActivity.startActivity(mainIntent);
         if (startAnimation)

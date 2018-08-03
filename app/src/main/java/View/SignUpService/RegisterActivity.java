@@ -82,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
         reister_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UIManager.startlogin(RegisterActivity.this,true);
+                UIManager.startInterestsActivity(RegisterActivity.this,true);
             }
         });
         ocr.setOnClickListener(new View.OnClickListener() {
@@ -281,15 +281,15 @@ public class RegisterActivity extends AppCompatActivity {
     private void showCameraAlert() {
         AlertDialog alertDialog = new AlertDialog.Builder(RegisterActivity.this).create();
         alertDialog.setTitle("Alert");
-        alertDialog.setMessage("التطبيق يريد السماح باستخدام الكاميرا.");
-        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "الرفض",
+        alertDialog.setMessage("Application Wants To Use Camera");
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Deny",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                         finish();
                     }
                 });
-        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "السماح",
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Allow",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
@@ -323,16 +323,16 @@ public class RegisterActivity extends AppCompatActivity {
     }
     private void showSettingsAlert() {
         AlertDialog alertDialog = new AlertDialog.Builder(RegisterActivity.this).create();
-        alertDialog.setTitle("تنبيه");
-        alertDialog.setMessage("التطبيق يريد السماح باستخدام الكاميرا.");
-        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "الرفض",
+        alertDialog.setTitle("Alert");
+        alertDialog.setMessage("Application Wants To Acess Camera.");
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Deny",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                         //finish();
                     }
                 });
-        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "الاعدادات",
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Settings",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();

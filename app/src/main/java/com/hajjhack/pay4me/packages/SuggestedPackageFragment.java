@@ -45,7 +45,8 @@ public class SuggestedPackageFragment extends Fragment {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UIManager.StartHome(getActivity(),true);
+
+                UIManager.startlogin(getActivity(),true);
             }
         });
         return f;
