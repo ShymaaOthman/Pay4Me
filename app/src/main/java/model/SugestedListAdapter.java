@@ -56,6 +56,7 @@ public class SugestedListAdapter extends BaseAdapter {
 
 
             viewHolder.label = (TextView) view.findViewById(R.id.label);
+            viewHolder.description = (TextView) view.findViewById(R.id.description);
             viewHolder.radioButton = (RadioButton) view.findViewById(R.id.radio_button);
 
             view.setTag(viewHolder);
@@ -99,6 +100,7 @@ public class SugestedListAdapter extends BaseAdapter {
 
     private class ViewHolder {
         private TextView label;
+        private TextView description;
         private RadioButton radioButton;
     }
 
